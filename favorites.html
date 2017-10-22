@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>smart library</title>
+<html>
+<head>
+	<title>Smart Library - Favourites</title>
+
         <meta charset="utf-8">
 
         <!-- CSS -->
@@ -34,9 +35,161 @@
 
         <script type="text/javascript" src="js/main.js"></script>
 
-    </head>
-    <body>
-        <!-- Menu here -->
+    <style type="text/css">
+    body{background-color: #fbfbfb; }
+    p { color: #616161; font-family: arial;}
+
+    @media (min-width: 576px){
+      body{
+        font-size:12px;
+    
+        }
+    }
+
+    @media(min-width: 768px){
+        body{ font-size: 14px;
+        }
+   }
+    @media(min-width: 992px){
+     body{
+        font-size: 16px;
+    }
+    }
+
+    @media(min-width: 1200px){
+      body{
+        font-size: 18px;
+ }
+    }
+        
+        .library{   
+            float:left;
+            padding:5px;
+            margin:25px; 
+            margin-top:35px; 
+            width: 300px;
+            height: 190px;
+            padding-bottom: 50px;
+
+      
+           
+        }
+        
+        .button{
+            width: 60px;
+            height: 35px;
+            font-size: 16px;
+            font-family: arial;
+            margin-top: 20px;
+            border-radius: 10px;
+            margin-left: 45px; 
+            border:1px solid grey;
+
+            
+            
+        }
+
+        
+        .delete_button{
+            width:20px;
+            height:20px; 
+            position:relative; 
+            top:10px; 
+            left: 17px;
+            float:right;    
+            visibility: hidden;
+
+        }
+
+        .library_name{
+
+            margin-top: 10px;
+        }
+        
+    </style>
+
+    <script type="text/javascript">
+
+    function mouseOver1(button){
+        button.style.backgroundColor="#616161";
+        button.style.color="white"
+               
+    }
+    function mouseOut1(button){
+        button.style.backgroundColor="white";
+        button.style.color="#616161"
+        
+    }
+    function mouseOver2(button){
+        button.style.backgroundColor="lightgreen";
+        button.style.color="white"
+               
+    }
+
+    function mouseOut2(button){
+        button.style.backgroundColor="white";
+        button.style.color="lightgreen"
+        
+    }
+
+
+
+   function show_delete_btn() {
+   	   var x = document.getElementsByClassName('delete_button')
+   	   var i;
+   	   for (i = 0; i < x.length; i++) {
+   	   	x[i].style.visibility="visible";
+   	   }
+   	   document.getElementById('save').style.visibility="visible";
+   }
+
+
+   function hide_delete_btn() {
+   	   var x = document.getElementsByClassName('delete_button')
+   	   var i;
+   	   for (i = 0; i < x.length; i++) {
+   	   	x[i].style.visibility="hidden";
+   	   }
+   	   document.getElementById('save').style.visibility="hidden";
+   }
+
+	$(document).ready(function(){
+    	$("#close1").click(function(){
+       	 $("#library1").remove();
+    	});
+	});
+
+	$(document).ready(function(){
+    	$("#close2").click(function(){
+       	 $("#library2").remove();
+    	});
+	});
+
+	$(document).ready(function(){
+    	$("#close3").click(function(){
+       	 $("#library3").remove();
+    	});
+	});
+
+	$(document).ready(function(){
+    	$("#close4").click(function(){
+       	 $("#library4").remove();
+    	});
+	});
+
+	$(document).ready(function(){
+    	$("#close5").click(function(){
+       	 $("#library5").remove();
+    	});
+	});
+
+
+    </script>
+
+</head>
+<body style="background: white;" >	
+ <!-- Menu here -->
+
         <div class="pos-f-t fixed-top" id="menubar">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#">
@@ -123,69 +276,65 @@
 
         </div>
 
-        <!-- Content here -->
-        <div class="container-fluid frame" id="wrapper">
+    <!-- edit & ok button -->
 
-            <div class="table-container col col-12">    
+    <div style="width: 100%; height:50px; margin-top:75px;">
+    	
+        <!-- edit button -->
+     	<button id="edit" type="button" class="button" style="background-color: white;"  onmouseover="mouseOver1(this)" onmouseout="mouseOut1(this)" onclick="show_delete_btn()">Edit</button>
 
-                <div class="row my-2">
+        <!-- ok button --> 
+    	<button id="save" type="button" id="ok" class="button" style="background-color: white;color:lightgreen; margin-left: 20px; visibility: hidden; " onmouseover=" mouseOver2(this)" onmouseout="mouseOut2(this)" onclick=" hide_delete_btn()">Save</button>
+   
+   
+    </div>
 
-                    <div class="col">
-                        <button type="button" class="btn btn-outline-secondary btn-round">edit</button>
-                    </div>
+    <!-- Libraries here-->
+ 
+    <div style="margin-top: -30px;">
+        <!-- Library 1 -->
+        <div id="library1" class="library">
+            <img id="close1" class="delete_button" src="images/close.png">
+            <img src="images/State Library of QLD.png" alt="State Library of QLD" alt="State Library of QLD">
+            <p class="library_name" style="text-align:center;">State Library of QLD</p> 
 
-                </div>
-     
-                <div class="row my-2">
-                    <div class="col col-3">
-                        <figure class="figure">
-                            <a href="detail.html">
-                            <img src="images/Asia Pacific Design Library.png" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
-                            <figcaption class="figure-caption text-center">Asia Pacific Design Library</figcaption>
-                            </a>
-                        </figure>                    
-                    </div>
-                    <div class="col col-3">
-                        <figure class="figure">
-                            <img src="images/Brisbane Square Library.png" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
-                            <figcaption class="figure-caption text-center">Brisbane Square Library</figcaption>
-                        </figure>                    
-                    </div>                    
-                    <div class="col col-3">
-                        <figure class="figure">
-                            <img src="images/New Farm Library.png" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
-                            <figcaption class="figure-caption text-center">New Farm Library</figcaption>
-                        </figure>                    
-                    </div>                    
-                    <div class="col col-3">
-                        <figure class="figure">
-                            <img src="images/QUT Gardens Point Library.png" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
-                            <figcaption class="figure-caption text-center">QUT Gardens Point Library</figcaption>
-                        </figure>                    
-                    </div>                
-                </div>
-                <div class="row my-2">
-                    <div class="col col-3">
-                        <figure class="figure">
-                            <img src="images/State Library of QLD.png" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
-                            <figcaption class="figure-caption text-center">State Library of QLD</figcaption>
-                        </figure>                    
-                    </div>
-                    <div class="col col-3">
-                   
-                    </div>                    
-                    <div class="col col-3">
-                   
-                    </div>                    
-                    <div class="col col-3">
-                  
-                    </div>                
-                </div>
+        </div>
 
-                <div class="row my-2">  
+        <!-- Library 2 -->
+        <div id="library2" class="library">
+            <img id="close2" class="delete_button" src="images/close.png">
+            <img src="images/Brisbane Square Library.png" alt="Brisbane Square Library">
+            <p class="library_name" style="text-align:center;">Brisbane Square Library</p> 
+        </div>
+
+        <!-- Library 3 -->
+        <div id="library3" class="library">
+            <img id="close3" class="delete_button" src="images/close.png" >
+            <img src="images/New Farm Library.png" alt="New Farm Library">
+            <p class="library_name" style="text-align:center;">New Farm Library</p>
+        </div>
+
+        <!-- Library 4 -->
+        <div id="library4" class="library">
+            <img id="close4" class="delete_button" src="images/close.png">
+            <img src="images/QUT Gardens Point Library.png" alt="New Farm Library">
+            <p class="library_name" style="text-align:center;">QUT Gardens Point Library</p>
+        </div>   
+    
+        <!-- Library 5 -->   
+        <div id="library5" class="library">
+            <img id="close5" class="delete_button" src="images/close.png">
+            <img src="images/Asia Pacific Design Library.png" alt="Asia Pacific Design Library">
+            <p class="library_name" style="text-align:center;">Asia Pacific Design Library</p>
+        </div>
+
+
+    </div>
+
+       <!--  <div class="row my-2" >  
                     <div class="col">     
                         <nav aria-label="Page navigation example">
-                            <ul class="pagination justify-content-end">
+                            <ul class="pagination justify-content-end" style="margin-right: 60px; margin-top: 50px;">
                                 <li class="page-item disabled">
                                     <a class="page-link" href="#" tabindex="-1">Previous</a>
                                 </li>
@@ -203,17 +352,10 @@
                     </div>
                 </div>
 
-            </div>
 
-        </div>
-
-        <!-- Footer here -->
-        <footer class="footer">
-            <div class="container">
-                <span class="text-muted">This is footer.</span>
-            </div>
-        </footer>
+-->
 
 
-    </body>
+
+</body>
 </html>
