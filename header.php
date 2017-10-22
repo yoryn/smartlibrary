@@ -32,11 +32,16 @@
 		<!-- bootstrap https://getbootstrap.com/ -->
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 
+
+
 		<script type="text/javascript" src="js/googlemap.js"></script>
 		<script type="text/javascript" src="js/routesuggestion.js"></script>
 		
 		<script type="text/javascript" src="js/main.js"></script>
+		
+		<script type="text/javascript" src="js/search.js"></script>
 
+		
 	</head>
 	<body> 
 		<!-- Menu here -->
@@ -74,51 +79,31 @@
 
 			<div class="collapse" id="navbarToggleExternalContent">
 
-				<div class="row">
-
 					<div class="bg-dark p-4 col col-12">
+						<div class="row">
 
-						<form class="form-inline">
+							<form class="form-inline" id="search" method="post">
 
-							<div class="input-group mb-2 mr-sm-2 mb-sm-0">
-								<div class="input-group-addon"><i class="oi oi-magnifying-glass" title="magnifying-glass" aria-hidden="true"></i>&nbsp;Search</div>
-								<input type="text" class="form-control" placeholder="key word">
+								<div class="input-group mb-2 col-7">
+									<div class="input-group-addon"><i class="oi oi-magnifying-glass" title="magnifying-glass" aria-hidden="true"></i>&nbsp;Search</div>
+									<input type="text" class="form-control" id="inputtext" placeholder="key word">
+								</div>
+
+								<div class="input-group mb-2 col-3">
+									<div class="input-group-addon"><i class="oi oi-wifi" title="wifi" aria-hidden="true"></i>&nbsp;Wi-Fi</div>
+									<select class="custom-select" id="wifi">
+										<option value="Yes">Yes</option>
+										<option value="No">No</option>
+									</select>
+								</div>
+								
+								<div class="input-group mb-2 col-2" >
+									<input type="submit" id="submit" name="sumbit" value="submit" class="btn btn-outline-warning" style="width: 100%" />
+								</div>
 							</div>
-
-							<div class="input-group mb-2 mr-sm-2 mb-sm-0">
-								<div class="input-group-addon"><i class="oi oi-wifi" title="wifi" aria-hidden="true"></i>&nbsp;Wi-Fi</div>
-								<select class="custom-select">
-									<option selected>Choose...</option>
-									<option value="1">yes</option>
-									<option value="2">no</option>
-								</select>
-							</div>
-
-							<div class="input-group mb-2 mr-sm-2 mb-sm-0">
-								<div class="input-group-addon"><i class="oi oi-clock" title="clock" aria-hidden="true"></i>&nbsp;Open Hour</div>
-								<select class="custom-select">
-									<option selected>Choose...</option>
-									<option value="1">One</option>
-									<option value="2">Two</option>
-									<option value="3">Three</option>
-								</select>
-							</div>
-
-							<div class="input-group mb-2 mr-sm-2 mb-sm-0">
-								<div class="input-group-addon"><i class="oi oi-map" title="map" aria-hidden="true"></i>&nbsp;Distance</div>
-								<select class="custom-select">
-									<option selected>Choose...</option>
-									<option value="1">&lt;500m</option>
-									<option value="2">500m - 1000m</option>
-									<option value="3">1km - 3km</option>
-									<option value="3">&gt;3km</option>
-								</select>
-							</div>
-
-							<button type="submit" class="btn btn-outline-warning">Submit</button>
 						</form>
 
-					</div>
+					
 				</div>
 			</div>
 

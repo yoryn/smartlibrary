@@ -64,25 +64,25 @@ function indexPageInit() {
 
 }
 
-var map;
 
 //Google Maps API guide
 function initMap() {
-	map = new google.maps.Map(document.getElementById('map'), {
+	var map = new google.maps.Map(document.getElementById('map'), {
 		zoom: 6,
 		center: {lat: -20.9176, lng: 142.7028},
 	});
 
+	var contentString = '<div id="content">'+
+		'<h1>test popup</h1>'+name+
+		'<p>'+'<a href="detail.php">a link to the detail page</a>'+'</p></div>';
 
+		
+	var infowindow = new google.maps.InfoWindow({
+		content: contentString,
+		maxWidth: 200
+	});
 
-	createMarker(locations);
-	//console.log(locations);
-
-}
-
-
-function createMarker(locations) {
-
+	//console.log("test");
 	for(i=0; i<locations.length; i++){
 		var name = libraryInfo[i][0];
 		var marker = new google.maps.Marker({
@@ -90,37 +90,21 @@ function createMarker(locations) {
 			map: map,
 			title: name
 		});
+
+
+		
+		
+
 		//console.log(marker);
-		// Another example marker
-		/*var marker = new google.maps.Marker({
-			position: {lat: -25.363, lng: 131.044},
-			map: map,
-			title: 'Uluru (Ayers Rock)'
-		});*/
-		addInfoWindow(marker, name);
+		marker.addListener('click', function() {
+			infowindow.open(map, this);
+		});
 	}
 
+
+
 }
 
-function addInfoWindow(marker, name) {
-
-	var message = '<div class="content">'
-				+'<form>'
-				+'<div class="row">'
-				+'<div class="col-12">'+'<h6>'+name+'</h6>'+'</div>'
-				+'</div>'
-				+'<input type="submit" value="Detail" id="Detail">'
-				+'</form>'
-				+'</div>'
-
-    var infoWindow = new google.maps.InfoWindow({
-        content: message
-    });
-
-    google.maps.event.addListener(marker, 'click', function () {
-        infoWindow.open(map, marker);
-    });
-}
 
 
 var libraryInfo = new Array;

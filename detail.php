@@ -35,11 +35,11 @@
 		$cache_filename = 'cache/slq-cache.json';
 //echo "heldsfdsfsdflowworld";
 		if(file_exists($cache_filename)){
-			echo'<p>Cached: Yes</p>';
+			//echo'<p>Cached: Yes</p>';
 			$data = file_get_contents($cache_filename);
 		}
 		else{// Create a new file if Cache file doesn't exist
-			echo '<p>Cached: No</p>';
+			//echo '<p>Cached: No</p>';
 			$data = file_get_contents($api_url);
 			file_put_contents($cache_filename, $data);
 		}

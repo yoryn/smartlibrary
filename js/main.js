@@ -8,6 +8,8 @@ $(document).ready(function(){
     var  getFooterHeight = $("footer").height();
 	//console.log(getMenuHeight);
     $(".frame").css("padding-bottom", getFooterHeight);
+
+
 });
 
 
