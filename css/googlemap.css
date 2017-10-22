@@ -2,7 +2,7 @@ html, body {
     height:100%;
 }
 
-.frame, #map {
+.container-fluid, #map {
     height:100%;
 }
 

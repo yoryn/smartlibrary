@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>smart library</title>
+		<title>Smart Library</title>
 		<meta charset="utf-8">
 
 		<!-- CSS -->
@@ -33,14 +33,16 @@
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 		<script type="text/javascript" src="js/googlemap.js"></script>
+		<script type="text/javascript" src="js/routesuggestion.js"></script>
+		
 		<script type="text/javascript" src="js/main.js"></script>
 
 	</head>
-	<body>
+	<body> 
 		<!-- Menu here -->
 		<div class="pos-f-t fixed-top" id="menubar">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
-				<a class="navbar-brand" href="#">
+				<a class="navbar-brand" href="index.php">
 				    <img src="images/logo.png" width="200px"  alt="logo">
 				</a>  
 				
@@ -51,20 +53,19 @@
 				<div class="collapse navbar-collapse " id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item active">
-							<a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link dropdown-toggle" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">Search</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="favorites.html">Favourite</a>
+							<a class="nav-link" href="favorites.php">Favourite</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Location</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="#">City One</a>
-								<a class="dropdown-item" href="#">City Two</a>
-								<a class="dropdown-item" href="#">City Three</a>
+
+							<!-- LIST OF CITY LOCATIONS -->
+							<div class="dropdown-menu" id="city-select" aria-labelledby="navbarDropdownMenuLink">
 							</div>
 						</li>
 					</ul>
@@ -83,7 +84,6 @@
 								<div class="input-group-addon"><i class="oi oi-magnifying-glass" title="magnifying-glass" aria-hidden="true"></i>&nbsp;Search</div>
 								<input type="text" class="form-control" placeholder="key word">
 							</div>
-
 
 							<div class="input-group mb-2 mr-sm-2 mb-sm-0">
 								<div class="input-group-addon"><i class="oi oi-wifi" title="wifi" aria-hidden="true"></i>&nbsp;Wi-Fi</div>
@@ -123,29 +123,3 @@
 			</div>
 
 		</div>
-
-		<!-- Content here -->
-		<div class="container-fluid frame">
-
-
-			<!-- Google Maps API guide -->
-		    <div id="map"></div>
-
-		    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
-	    	</script>
-		    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7dEW6bi2LiQpzLSHBMbuaAnx8F8S29pQ&callback=initMap"
-		    async defer></script>
-
-
-		</div>
-
-		<!-- Footer here -->
-		<footer class="footer">
-			<div class="container">
-				<span class="text-muted">&copy; D Squad</span>
-			</div>
-		</footer>
-
-
-	</body>
-</html>

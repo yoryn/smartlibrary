@@ -1,9 +1,13 @@
 
+
+
 .footer {
     position: fixed;
     bottom: 0;
-    background-color: #f5f5f5;
     width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: #f5f5f5;
 }
 
 
@@ -15,6 +19,8 @@
 	color:orange;
 }
 
+
+
 #wrapper {
   overflow:auto;
 }
@@ -23,14 +29,65 @@
 .input-group-addon {
 	background-color: transparent;
 	border-color: orange;
-	color:orange;
+	color: orange;
+} 
+
+/* STYLING FOR ROUTE SUGGESTION */
+
+form {
+    width: 95%;
+    margin-left: 2.5%;
 }
 
-.figure{
-      float:left;
-      margin-top:10px;
-      margin-left:45px; 
-      width: 300px;
-      height: 190px;
-      padding-bottom: 50px;
-  }
+.routemap {
+    height: 100%;
+    width: 84%;
+    float: left;
+}
+
+.route-selection {
+    width: 16%;
+    height: 100%;
+    margin: 0em;
+    padding: 1em;
+    float: left;
+    background-color: #5679F0;
+}
+
+.form-input {
+    width: 80%;
+    color: white;
+    background-color: #5679F0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: #b7d2ff 1px solid;
+    padding: 0.15em 0.5em;
+    float: right;
+}
+
+.route-icon {
+    width: 20px;
+    margin: 0.5em;
+}
+
+.transport-icon {
+    width: 17%;
+    float: left;
+    margin: 4%;
+    padding: 0.6em;
+}
+
+a .transport-icon:hover, a .transport-icon:active{
+    background-color: #4957D1;
+    border-radius: 100%;
+}
+
+.transport {
+    width: 100%;
+}
+
+
+
+
+
