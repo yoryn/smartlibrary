@@ -13,31 +13,13 @@ function iterateRecords(data){
 	});
 	//console.log(locations);
 }
- 
-function iterateCityLocations(data){
-	var allCities = [];
-	$.each(data.result.records, function (recordKey, recordValue){
-		
-		var recordCity = recordValue['NameofLibraryService'];
-		var cityName = recordCity.split(" ", 2);
-		if (allCities.includes(cityName.join(" ")) == false) {
-			allCities.push(cityName.join(" "));
-		}
-	});
 
-	$.each(allCities.sort(), function(i, city){
-		$('#city-select').append(
-			$('<a class="dropdown-item" href="#">').text(city)
-			);
-	});
-}
-
-
-function indexPageInit() {
-	console.log("hello");
+$(document).ready(function(){
+    
+// get locations from APIs
     var data = {
     resource_id: '9b58c2e0-e71f-494d-82eb-1b92e39120f4', // the resource id
-  	}; 
+  	};
 
   	$.ajax({
 	    url: 'https://data.gov.au/api/action/datastore_search',
@@ -46,41 +28,42 @@ function indexPageInit() {
 	    cache: true,
 	    success: function(data) {
 	    	iterateRecords(data);
-
-	    	iterateCityLocations(data);
-    		console.log(data);
+    		//console.log(data);
     		initMap();
 	     // alert('Total results found: ' + data.result.limit)
 	    }
     });
+    	//console.log("hello world");
 
-}
+});
+
+
+
 
 
 //Google Maps API guide
 function initMap() {
 	var map = new google.maps.Map(document.getElementById('map'), {
-		zoom: 6,
+		zoom: 5,
 		center: {lat: -20.9176, lng: 142.7028},
 	});
 
 	var contentString = '<div id="content">'+
 		'<h1>test popup</h1>'+
-		'<p>'+'<a href="detail.php">a link to the detail page</a>'+'</p></div>';
+		'<p>'+'<a href="detail.html">a link to the detail page</a>'+'</p></div>';
 
 	var infowindow = new google.maps.InfoWindow({
 		content: contentString,
 		maxWidth: 200
 	});
-	console.log("test");
+
 	for(i=0; i<locations.length; i++){
 		var marker = new google.maps.Marker({
 			position: locations[i],
 			map: map,
 			title: ''
 		});
-		
-		console.log(marker);
+			
 		marker.addListener('click', function() {
 			infowindow.open(map, this);
 		});
