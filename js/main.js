@@ -8,14 +8,6 @@ $(document).ready(function(){
     var  getFooterHeight = $("footer").height();
 	//console.log(getMenuHeight);
     $(".frame").css("padding-bottom", getFooterHeight);
-
-
-    $("#textinput").keyup(function(){
-		var searchTerm = $(this).val();
-		console.log(searchTerm);
-
-	});
-
 });
 
 
