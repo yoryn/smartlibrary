@@ -109,7 +109,7 @@ function addInfoWindow(marker, name) {
 				+'<div class="row">'
 				+'<div class="col-12">'+'<h6>'+name+'</h6>'+'</div>'
 				+'</div>'
-				+'<input type="submit" value="Detail" id="Detail">'
+				+'<input type="submit" value="Detail" id="detail">'
 				+'</form>'
 				+'</div>'
 
