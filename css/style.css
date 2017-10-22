@@ -1,0 +1,28 @@
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    background-color: #f5f5f5;
+    width: 100%;
+}
+
+
+.btn-round {
+	border-radius: 1rem;
+}
+
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+	color:orange;
+}
+
+#wrapper {
+  overflow:auto;
+}
+
+
+.input-group-addon {
+	background-color: transparent;
+	border-color: orange;
+	color:orange;
+}
+

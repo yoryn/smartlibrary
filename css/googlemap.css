@@ -1,0 +1,8 @@
+html, body {
+    height:100%;
+}
+
+.frame, #map {
+    height:100%;
+}
+
