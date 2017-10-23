@@ -104,14 +104,21 @@ function createMarker(locations) {
 
 function addInfoWindow(marker, name) {
 
-	var message = '<div class="content">'
+	var message ='<div class="content">'
+				+'<form name="detail" id="detail" method="post" action="detail.php">'
 				+'<div class="row">'
 				+'<div class="col-12">'+'<h4>'+name+'</h4>'+'</div>'
 				+'</div>'
+
 				+'<div class="row">'
-				+'<div class="col-12">'+'<input type="submit" value="Detail" id="detail" class="btn btn-primary btn-sm" style="width:100%">'+'</div>'
+				+'<div class="col-12">'+'<input type="submit" value="Detail" class="btn btn-primary btn-sm" style="width:100%">'+'</div>'
 				+'</div>'
+				+'</form>'
 				+'</div>'
+				+'<?php'
+				+'session_start();'
+				+"$_SESSION['myValue']=3;"
+				+'?>'
 
     var infoWindow = new google.maps.InfoWindow({
         content: message

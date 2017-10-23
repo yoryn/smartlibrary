@@ -6,11 +6,15 @@
 	<body>
 		<?php
 			// ADDS THE HEADER AND NAVIGATION
-			$pageTitle = 'LibraryDetails';
-			include('header.php');
+			//$pageTitle = 'LibraryDetails';
+			//include('header.php');
 		?>
 
+		<?php 
+			session_start();
+			echo $_SESSION['myValue'];
 
+		?>
 		<?php
 		// Turn the PHP errors on
 		ini_set('display_errors', 1);
