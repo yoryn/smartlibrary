@@ -105,12 +105,12 @@ function createMarker(locations) {
 function addInfoWindow(marker, name) {
 
 	var message = '<div class="content">'
-				+'<form>'
 				+'<div class="row">'
-				+'<div class="col-12">'+'<h6>'+name+'</h6>'+'</div>'
+				+'<div class="col-12">'+'<h4>'+name+'</h4>'+'</div>'
 				+'</div>'
-				+'<input type="submit" value="Detail" id="detail">'
-				+'</form>'
+				+'<div class="row">'
+				+'<div class="col-12">'+'<input type="submit" value="Detail" id="detail" class="btn btn-primary btn-sm" style="width:100%">'+'</div>'
+				+'</div>'
 				+'</div>'
 
     var infoWindow = new google.maps.InfoWindow({
