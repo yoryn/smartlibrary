@@ -78,6 +78,7 @@
 							// Output HTML for a record with variables included
 							echo'
 							<!-- content here -->
+							<div class = ""
 							<div class="container-fluid frame">
 								<div class="row">
 									<div class = "col-8">
@@ -155,6 +156,57 @@
 					}
 				}
 		?>
+
+	<script>
+		//flickr api
+		var flickrKey = "d31ade83b158493b9f61aa44c5fba512";
+		var flickrSecret = "d22e4391f91f4d74";	
+	
+		var searchTerm = $(e.currentTarget).text();
+		console.log(searchTerm);
+
+		//Question how can I retrieve the lat and lon ?
+		var searchLat = ;
+		var searchLon = ;
+
+		var flickrData = {
+			method: 'flickr.photos.search',
+			api_key: flickrKey,
+			format: 'json',
+			text: searchTerm,
+			privacy_filter: 1,
+			content_type: 1,
+			per_page: 50,
+			nojsoncallback: 1,
+			lat: searchLat,
+			lon: searchLon
+		};
+		console.log(flickrData);
+
+		$.ajax({
+	    	url: 'https://api.flickr.com/services/rest/',
+	    	data: flickrData,
+	    	dataType: 'json',
+	    	cache: false,
+	    	success: function(data) {
+	    		console.log(data);
+	    		var imgURI = getFlickrImageURI(data.photos.photo[0]);
+	    		var imgDesc = data.photos.photo[0].title;
+	    		source.append(
+	    			$('<img>').attr('src', imgURI).attr('alt', imgDesc),
+	    			$('<p>').text(imgDesc)
+	    		);
+	    	}
+	  	});
+
+	function getFlickrImageURI(photoDetails) {
+	var base = 'https://farm1.staticflickr.com/';
+	var URI = base + photoDetails.server + "/" + photoDetails.id + "_" + photoDetails.secret + "_m.jpg";
+	return URI;
+	}
+
+	</script>
+
 
 	<?php
 		// ADD THE FOOTER

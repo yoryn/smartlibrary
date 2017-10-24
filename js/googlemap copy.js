@@ -7,21 +7,19 @@ function iterateRecords(data){
 		var recordLng = recordValue['Longitude(Decimal)'];
 		var branchName = recordValue['BranchName'];
 		var wifiAvailability = recordValue['WiFiAvailability'];
-		
 		dic = {lat: parseFloat(recordLat), lng: parseFloat(recordLng)};
-		//console.log(website);
+
 		info = [branchName, wifiAvailability, dic];
-		//info = ['string','string',{float, float},'string']
 
 
 		if (recordLat && recordLng && branchName && wifiAvailability){
 			locations.push(dic);
-			alllibraryInfo.push(info);
 			libraryInfo.push(info);
+			
 		}
 	});
 	//console.log(locations);
-	//console.log(libraryInfo);
+	console.log(libraryInfo);
 }
  
 function iterateCityLocations(data){
@@ -66,74 +64,54 @@ function indexPageInit() {
 
 }
 
-var map;
-var alllibraryInfo = new Array;
-// sets an array to store all the library information
+
+//Google Maps API guide
+function initMap() {
+	var map = new google.maps.Map(document.getElementById('map'), {
+		zoom: 6,
+		center: {lat: -20.9176, lng: 142.7028},
+	});
+
+	var contentString = '<div id="content">'+
+		'<h1>test popup</h1>'+name+
+		'<p>'+'<a href="detail.php">a link to the detail page</a>'+'</p></div>';
+
+		
+	var infowindow = new google.maps.InfoWindow({
+		content: contentString,
+		maxWidth: 200
+	});
+
+	//console.log("test");
+	for(i=0; i<locations.length; i++){
+		var name = libraryInfo[i][0];
+		var marker = new google.maps.Marker({
+			position: locations[i],
+			map: map,
+			title: name
+		});
+
+
+		
+		
+
+		//console.log(marker);
+		marker.addListener('click', function() {
+			infowindow.open(map, this);
+		});
+	}
+
+
+
+}
+
+
+
 var libraryInfo = new Array;
-// sets an array to store the result of searching library information
-// example: libraryInfo = [['name','yes/no',{lat: -31.563910, lng: 147.154312}]...]
 var locations = new Array;
-// sets an array to store the locations of the libraries
 /* 	example: 
 	var locations = [
 		{lat: -31.563910, lng: 147.154312},
 		{lat: -33.718234, lng: 150.363181},
 	]
 */
-
-//Google Maps API guide
-function initMap() {
-	map = new google.maps.Map(document.getElementById('map'), {
-		zoom: 6,
-		center: {lat: -20.9176, lng: 142.7028},
-	});
-
-	createMarker(locations);
-	//console.log(locations);
-}
-
-
-function createMarker(locations) {
-
-	for(i=0; i<locations.length; i++){
-		var name = libraryInfo[i][0];
-		
-		var marker = new google.maps.Marker({
-			position: locations[i],
-			map: map,
-			title: name,
-			
-		});
-		//console.log(marker);
-		addInfoWindow(marker, name);
-	}
-
-}
-
-function addInfoWindow(marker, name) {
-
-	var message ='<div class="content">'
-				+'<form name="detail" id="detail" method="get" action="detail.php">'
-				+'<div class="row">'
-				+'<div class="col-12">'+'<h4>'+name+'</h4>'+'</div>'
-				+'</div>'
-
-				+'<div class="row">'
-				+'<div class="col-12">'+'<button type="submit" value="'+name+'" name="name" class="btn btn-primary btn-sm" style="width:100%">Detail</button>'+'</div>'
-				+'</div>'
-				+'</form>'
-				+'</div>'
-				
-
-
-    var infoWindow = new google.maps.InfoWindow({
-        content: message
-    });
-
-    google.maps.event.addListener(marker, 'click', function () {
-        infoWindow.open(map, marker);
-    });
-}
-
-
-

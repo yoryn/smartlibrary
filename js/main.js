@@ -9,7 +9,6 @@ $(document).ready(function(){
 	//console.log(getMenuHeight);
     $(".frame").css("padding-bottom", getFooterHeight);
 
-
 });
 
 
